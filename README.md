@@ -1,4 +1,4 @@
-# flutter_astrapay_sdk_sample
+# flutter sdk sample
 
 A new Flutter project.
 

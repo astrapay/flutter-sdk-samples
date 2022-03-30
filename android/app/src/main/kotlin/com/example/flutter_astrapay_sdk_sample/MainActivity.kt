@@ -67,4 +67,12 @@ class MainActivity: FlutterActivity(), AstraPayQrisListener {
     override fun onCancel() {
         Toast.makeText(this, "User cancel the transaction", Toast.LENGTH_SHORT).show()
     }
+
+    override fun onProcessing() {
+        Toast.makeText(this, "processing", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onShowHistory() {
+        Toast.makeText(this, "on show history", Toast.LENGTH_SHORT).show()
+    }
 }

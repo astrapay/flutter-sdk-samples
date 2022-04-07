@@ -21,6 +21,8 @@ import com.astrapay.qrissdk.helper.AstraPayQris
 import com.astrapay.qrissdk.helper.AstraPayQrisListener
 import com.astrapay.qrissdk.helper.EventType
 import com.astrapay.qrissdk.helper.data.AstraPayQrisAuth
+import com.astrapay.webviewtopupsdk.helper.AstraPayWebViewTopUp
+import com.astrapay.webviewtopupsdk.helper.WebViewTopUpAuth
 
 class MainActivity: FlutterActivity(), AstraPayQrisListener {
     val CHANNEL = "channel_qris"
@@ -41,6 +43,15 @@ class MainActivity: FlutterActivity(), AstraPayQrisListener {
                     astraPayQrisAuth = astraPayAuth
                 )
 
+            } else if (call.method == "startWebViewTopUp") {
+                val webViewAuth = WebViewTopUpAuth(
+                    context = this,
+                    authorizationToken = "AUTH_TOKEN"
+                )
+                AstraPayWebViewTopUp.execute(
+                    webViewTopUpAuth = webViewAuth,
+                    buildType = AstraPayWebViewTopUp.Build.UAT
+                )
             } else{
                 result.notImplemented()
             }
